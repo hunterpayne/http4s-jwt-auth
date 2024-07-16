@@ -61,7 +61,7 @@ object jwt {
   case class JwtAsymmetricAuth(publicKey: JwtPublicKey) extends JwtAuth
   object JwtAuth {
     def noValidation: JwtAuth = JwtNoValidation
-    @deprecated(message = "use of string to hold secret keys is deprecated", since = "1.x")
+    @deprecated(message = "use of string to hold secret keys is deprecated and potentially unsafe", since = "2.x")
     def hmac(secretKey: String, algorithm: JwtHmacAlgorithm): JwtSymmetricAuth =
       JwtSymmetricAuth(JwtSecretKey(secretKey.toArray[Char]), Seq(algorithm))
     def hmac(secretKey: Array[Char], algorithm: JwtHmacAlgorithm): JwtSymmetricAuth =
