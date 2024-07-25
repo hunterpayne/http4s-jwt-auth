@@ -71,7 +71,7 @@ object jwt {
       JwtSymmetricAuth(JwtSecretKey(secretKey.toArray[Char]), algorithms)
     def hmac(
         secretKey: Array[Char],
-        algorithms: Seq[JwtHmacAlgorithm] /* = JwtAlgorithm.allHmac() */
+        algorithms: Seq[JwtHmacAlgorithm]
     ): JwtSymmetricAuth =
       JwtSymmetricAuth(JwtSecretKey(secretKey), algorithms)
   }
