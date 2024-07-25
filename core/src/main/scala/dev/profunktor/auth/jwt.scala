@@ -66,7 +66,7 @@ object jwt {
       JwtSymmetricAuth(JwtSecretKey(secretKey.toArray[Char]), Seq(algorithm))
     def hmac(secretKey: Array[Char], algorithm: JwtHmacAlgorithm): JwtSymmetricAuth =
       JwtSymmetricAuth(JwtSecretKey(secretKey), Seq(algorithm))
-    @deprecated(message = "use of string to hold secret keys is deprecated", since = "1.x")
+    @deprecated(message = "use of string to hold secret keys is deprecated and potentially unsafe", since = "2.x")
     def hmac(secretKey: String, algorithms: Seq[JwtHmacAlgorithm] = JwtAlgorithm.allHmac()): JwtSymmetricAuth =
       JwtSymmetricAuth(JwtSecretKey(secretKey.toArray[Char]), algorithms)
     def hmac(
